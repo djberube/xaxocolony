@@ -44,6 +44,15 @@ use thinking_system::*;
 mod unitgenerator_system;
 use unitgenerator_system::*;
 
+// NEW AAA SYSTEMS
+mod inventory_system;
+mod crafting_system;
+mod weather_system;
+mod tech_system;
+mod building_system;
+mod formation_system;
+mod diplomacy_system;
+
 fn main() {
     //println!("Hello, world!");
     App::new()
@@ -70,7 +79,10 @@ fn main() {
         )
         .add_plugins(
             (SelectionPlugin, MonsterGeneratorPlugin, MovementPlugin, SeasonsPlugin, NeedsPlugin, GameUiPlugin,
-                InfoPanelPlugin, ThinkingPlugin, TaskPlugin, CombatPlugin, SpoilagePlugin, ClickPlugin))
+                InfoPanelPlugin, ThinkingPlugin, TaskPlugin, CombatPlugin, SpoilagePlugin, ClickPlugin,
+                // NEW AAA PLUGINS
+                InventoryPlugin, CraftingPlugin, WeatherPlugin, TechPlugin,
+                BuildingPlugin, FormationPlugin, DiplomacyPlugin))
         .add_systems(
             Update,
             status_display_system
