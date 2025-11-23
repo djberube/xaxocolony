@@ -113,8 +113,8 @@ impl UnitTemplate {
             ],
         }
     }
-    pub fn elf() -> Self {
-        let actor_type = ActorType::Elf;
+    pub fn augmented() -> Self {
+        let actor_type = ActorType::Augmented;
         let random_afflictions = Self::random_afflictions_humanoid();
         Self {
             actor_type,
@@ -130,8 +130,8 @@ impl UnitTemplate {
             ],
         }
     }
-    pub fn dwarf() -> Self {
-        let actor_type = ActorType::Dwarf;
+    pub fn miner() -> Self {
+        let actor_type = ActorType::Miner;
         let random_afflictions = Self::random_afflictions_humanoid();
         Self {
             actor_type,
@@ -202,8 +202,8 @@ impl UnitTemplate {
             ],
         }
     }
-    pub fn cyclops() -> Self {
-        let actor_type = ActorType::Cyclops;
+    pub fn titan_mech() -> Self {
+        let actor_type = ActorType::TitanMech;
         let random_afflictions = vec![];//Self::random_afflictions_animal();
         Self {
             actor_type,

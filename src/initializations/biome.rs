@@ -20,7 +20,7 @@ pub fn starting_biome() -> Biome {
         plant_overall_scarcity: 10,
         tiles: vec![TileType::Grass, TileType::Grass, TileType::Grass, TileType::Grass, TileType::Grass, TileType::Grass, TileType::Grass,
         TileType::Grass, TileType::Grass, TileType::Grass, TileType::Grass, TileType::Dirt, TileType::Gravel],
-        objects: vec![ItemType::StatuePillar3,ItemType::StatueCat,ItemType::StatueDragon, ItemType::Moss1, ItemType::Moss2, ItemType::LeafyDebris1],
+        objects: vec![ItemType::StatuePillar3,ItemType::StatueCat,ItemType::StatueMech, ItemType::Moss1, ItemType::Moss2, ItemType::LeafyDebris1],
         objects_scarcity: vec![1, 1, 1],
         objects_overall_scarcity: 200,
     }

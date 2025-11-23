@@ -154,9 +154,9 @@ impl TechnologyTree {
                 ],
             },
             Technology {
-                id: "archery".to_string(),
-                name: "Archery".to_string(),
-                description: "Master the bow and arrow".to_string(),
+                id: "marksmanship".to_string(),
+                name: "Marksmanship".to_string(),
+                description: "Master ranged ballistic weapons".to_string(),
                 age: TechAge::BronzeAge,
                 category: TechCategory::Military,
                 research_cost: ResearchCost {
@@ -166,9 +166,9 @@ impl TechnologyTree {
                 },
                 prerequisites: vec!["hunting".to_string()],
                 unlocks: vec![
-                    Unlock::Recipe("craft_bow".to_string()),
-                    Unlock::Recipe("craft_arrows".to_string()),
-                    Unlock::Unit("archer".to_string()),
+                    Unlock::Recipe("craft_railgun".to_string()),
+                    Unlock::Recipe("craft_railgun_slugs".to_string()),
+                    Unlock::Unit("rifleman".to_string()),
                 ],
             },
             Technology {
@@ -231,9 +231,9 @@ impl TechnologyTree {
                 ],
             },
             Technology {
-                id: "advanced_archery".to_string(),
-                name: "Advanced Archery".to_string(),
-                description: "Develop crossbows and composite bows".to_string(),
+                id: "precision_weapons".to_string(),
+                name: "Precision Weapons".to_string(),
+                description: "Develop gauss rifles and sniper systems".to_string(),
                 age: TechAge::IronAge,
                 category: TechCategory::Military,
                 research_cost: ResearchCost {
@@ -241,17 +241,17 @@ impl TechnologyTree {
                     research_points: 550,
                     time: 330.0,
                 },
-                prerequisites: vec!["archery".to_string(), "ironworking".to_string()],
+                prerequisites: vec!["marksmanship".to_string(), "ironworking".to_string()],
                 unlocks: vec![
-                    Unlock::Recipe("craft_crossbow".to_string()),
-                    Unlock::Recipe("craft_bolts".to_string()),
-                    Unlock::Unit("crossbowman".to_string()),
+                    Unlock::Recipe("craft_gauss_rifle".to_string()),
+                    Unlock::Recipe("craft_gauss_charges".to_string()),
+                    Unlock::Unit("sniper".to_string()),
                 ],
             },
             Technology {
-                id: "fortification".to_string(),
-                name: "Fortification".to_string(),
-                description: "Build mighty fortresses and castles".to_string(),
+                id: "defense_systems".to_string(),
+                name: "Defense Systems".to_string(),
+                description: "Build fortified command centers and defense structures".to_string(),
                 age: TechAge::IronAge,
                 category: TechCategory::Construction,
                 research_cost: ResearchCost {
@@ -261,15 +261,15 @@ impl TechnologyTree {
                 },
                 prerequisites: vec!["masonry".to_string()],
                 unlocks: vec![
-                    Unlock::Building("castle".to_string()),
+                    Unlock::Building("command_center".to_string()),
                     Unlock::Building("gate".to_string()),
-                    Unlock::Building("siege_tower".to_string()),
+                    Unlock::Building("defense_turret".to_string()),
                 ],
             },
             Technology {
-                id: "cavalry".to_string(),
-                name: "Cavalry".to_string(),
-                description: "Train mounted warriors".to_string(),
+                id: "mechanized_units".to_string(),
+                name: "Mechanized Units".to_string(),
+                description: "Deploy combat vehicles and armored units".to_string(),
                 age: TechAge::IronAge,
                 category: TechCategory::Military,
                 research_cost: ResearchCost {
@@ -279,18 +279,18 @@ impl TechnologyTree {
                 },
                 prerequisites: vec!["ironworking".to_string()],
                 unlocks: vec![
-                    Unlock::Building("stable".to_string()),
-                    Unlock::Unit("cavalry".to_string()),
-                    Unlock::Unit("knight".to_string()),
+                    Unlock::Building("vehicle_bay".to_string()),
+                    Unlock::Unit("armored_vehicle".to_string()),
+                    Unlock::Unit("assault_trooper".to_string()),
                 ],
             },
 
-            // AGE 4: MEDIEVAL
+            // AGE 4: ELECTRONIC
             Technology {
                 id: "steel_working".to_string(),
                 name: "Steel Working".to_string(),
                 description: "Master steel production for superior equipment".to_string(),
-                age: TechAge::Medieval,
+                age: TechAge::Electronic,
                 category: TechCategory::Tools,
                 research_cost: ResearchCost {
                     resources: vec![("iron_bar".to_string(), 100)],
@@ -305,29 +305,29 @@ impl TechnologyTree {
                 ],
             },
             Technology {
-                id: "siege_engineering".to_string(),
-                name: "Siege Engineering".to_string(),
-                description: "Build siege weapons to break fortifications".to_string(),
-                age: TechAge::Medieval,
+                id: "heavy_weapons".to_string(),
+                name: "Heavy Weapons".to_string(),
+                description: "Deploy artillery and siege mechs to break defenses".to_string(),
+                age: TechAge::Electronic,
                 category: TechCategory::Military,
                 research_cost: ResearchCost {
                     resources: vec![("wood".to_string(), 100), ("iron_bar".to_string(), 80)],
                     research_points: 900,
                     time: 540.0,
                 },
-                prerequisites: vec!["fortification".to_string()],
+                prerequisites: vec!["defense_systems".to_string()],
                 unlocks: vec![
-                    Unlock::Building("workshop".to_string()),
-                    Unlock::Unit("trebuchet".to_string()),
-                    Unlock::Unit("battering_ram".to_string()),
-                    Unlock::Unit("ballista".to_string()),
+                    Unlock::Building("heavy_weapons_facility".to_string()),
+                    Unlock::Unit("artillery".to_string()),
+                    Unlock::Unit("siege_mech".to_string()),
+                    Unlock::Unit("railgun_turret".to_string()),
                 ],
             },
             Technology {
-                id: "alchemy".to_string(),
-                name: "Alchemy".to_string(),
-                description: "Brew potions and discover magical properties".to_string(),
-                age: TechAge::Medieval,
+                id: "biochemistry".to_string(),
+                name: "Biochemistry".to_string(),
+                description: "Synthesize medical compounds and performance enhancers".to_string(),
+                age: TechAge::Electronic,
                 category: TechCategory::Science,
                 research_cost: ResearchCost {
                     resources: vec![],
@@ -336,17 +336,17 @@ impl TechnologyTree {
                 },
                 prerequisites: vec![],
                 unlocks: vec![
-                    Unlock::Building("laboratory".to_string()),
-                    Unlock::Recipe("craft_health_potion".to_string()),
-                    Unlock::Recipe("craft_mana_potion".to_string()),
-                    Unlock::Recipe("craft_strength_potion".to_string()),
+                    Unlock::Building("research_lab".to_string()),
+                    Unlock::Recipe("craft_medkit".to_string()),
+                    Unlock::Recipe("craft_energy_cell".to_string()),
+                    Unlock::Recipe("craft_stimpack".to_string()),
                 ],
             },
             Technology {
                 id: "trade".to_string(),
                 name: "Trade Networks".to_string(),
                 description: "Establish trade routes and commerce".to_string(),
-                age: TechAge::Medieval,
+                age: TechAge::Electronic,
                 category: TechCategory::Economy,
                 research_cost: ResearchCost {
                     resources: vec![],
@@ -366,7 +366,7 @@ impl TechnologyTree {
                 id: "agriculture_advanced".to_string(),
                 name: "Advanced Agriculture".to_string(),
                 description: "Improve farming efficiency dramatically".to_string(),
-                age: TechAge::Medieval,
+                age: TechAge::Electronic,
                 category: TechCategory::Economy,
                 research_cost: ResearchCost {
                     resources: vec![],
@@ -383,7 +383,7 @@ impl TechnologyTree {
                 id: "medicine".to_string(),
                 name: "Medicine".to_string(),
                 description: "Advanced healing and surgery".to_string(),
-                age: TechAge::Medieval,
+                age: TechAge::Electronic,
                 category: TechCategory::Science,
                 research_cost: ResearchCost {
                     resources: vec![],
@@ -467,7 +467,7 @@ pub enum TechAge {
     StoneAge,
     BronzeAge,
     IronAge,
-    Medieval,
+    Electronic,
     Renaissance,
     Industrial,
     Modern,
@@ -522,10 +522,10 @@ pub struct Civilization {
 #[derive(Clone, PartialEq)]
 pub enum CivilizationType {
     Humans,
-    Elves,
-    Dwarves,
-    Orcs,
-    Undead,
+    Cyborgs,
+    Miners,
+    Mutants,
+    Synthetics,
 }
 
 impl CivilizationType {
@@ -536,22 +536,22 @@ impl CivilizationType {
                 CivBonus::BuildSpeed(1.15),
                 CivBonus::StartingResources("food".to_string(), 100),
             ],
-            CivilizationType::Elves => vec![
+            CivilizationType::Cyborgs => vec![
                 CivBonus::ArcheryDamage(1.25),
                 CivBonus::MovementSpeed(1.2),
                 CivBonus::VisionRange(1.5),
             ],
-            CivilizationType::Dwarves => vec![
+            CivilizationType::Miners => vec![
                 CivBonus::MiningSpeed(1.5),
                 CivBonus::BuildingHealth(1.3),
                 CivBonus::MeleeDefense(1.2),
             ],
-            CivilizationType::Orcs => vec![
+            CivilizationType::Mutants => vec![
                 CivBonus::MeleeDamage(1.3),
                 CivBonus::UnitHealth(1.25),
                 CivBonus::TrainingSpeed(1.2),
             ],
-            CivilizationType::Undead => vec![
+            CivilizationType::Synthetics => vec![
                 CivBonus::NoFoodCost,
                 CivBonus::Regeneration(0.5),
                 CivBonus::PoisonResistance(1.0),
@@ -561,11 +561,11 @@ impl CivilizationType {
 
     pub fn unique_units(&self) -> Vec<String> {
         match self {
-            CivilizationType::Humans => vec!["knight".to_string(), "paladin".to_string()],
-            CivilizationType::Elves => vec!["ranger".to_string(), "treant".to_string()],
-            CivilizationType::Dwarves => vec!["berserker".to_string(), "siege_engineer".to_string()],
-            CivilizationType::Orcs => vec!["warlord".to_string(), "raider".to_string()],
-            CivilizationType::Undead => vec!["necromancer".to_string(), "lich".to_string()],
+            CivilizationType::Humans => vec!["assault_trooper".to_string(), "elite_guard".to_string()],
+            CivilizationType::Cyborgs => vec!["scout".to_string(), "sentinel_bot".to_string()],
+            CivilizationType::Miners => vec!["shock_trooper".to_string(), "heavy_weapons_specialist".to_string()],
+            CivilizationType::Mutants => vec!["warboss".to_string(), "marauder".to_string()],
+            CivilizationType::Synthetics => vec!["ai_controller".to_string(), "immortal_cyborg".to_string()],
         }
     }
 }

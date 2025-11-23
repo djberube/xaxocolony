@@ -30,7 +30,7 @@ pub enum CraftingStation {
     Loom,
     TanningRack,
     Furnace,
-    Laboratory,
+    ResearchLab,
     Sawmill,
     None, // Can craft anywhere
 }
@@ -120,10 +120,10 @@ impl RecipeDatabase {
 
             // WEAPONS
             CraftingRecipe {
-                id: "craft_spear".to_string(),
-                name: "Spear".to_string(),
-                description: "Craft a long-reach weapon".to_string(),
-                output_item: "spear".to_string(),
+                id: "craft_plasma_lance".to_string(),
+                name: "Plasma Lance".to_string(),
+                description: "Craft a long-reach energy weapon".to_string(),
+                output_item: "plasma_lance".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("wood".to_string(), 2),
@@ -136,10 +136,10 @@ impl RecipeDatabase {
                 skill_xp_gained: 40,
             },
             CraftingRecipe {
-                id: "craft_iron_sword".to_string(),
-                name: "Iron Sword".to_string(),
-                description: "Craft a sturdy blade".to_string(),
-                output_item: "iron_sword".to_string(),
+                id: "craft_combat_blade".to_string(),
+                name: "Combat Blade".to_string(),
+                description: "Craft a sturdy tactical blade".to_string(),
+                output_item: "combat_blade".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("iron_bar".to_string(), 5),
@@ -152,10 +152,10 @@ impl RecipeDatabase {
                 skill_xp_gained: 100,
             },
             CraftingRecipe {
-                id: "craft_war_axe".to_string(),
-                name: "War Axe".to_string(),
-                description: "Craft a powerful battle axe".to_string(),
-                output_item: "war_axe".to_string(),
+                id: "craft_power_axe".to_string(),
+                name: "Power Axe".to_string(),
+                description: "Craft a powered combat axe".to_string(),
+                output_item: "power_axe".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("iron_bar".to_string(), 6),
@@ -168,26 +168,26 @@ impl RecipeDatabase {
                 skill_xp_gained: 150,
             },
             CraftingRecipe {
-                id: "craft_bow".to_string(),
-                name: "Hunting Bow".to_string(),
-                description: "Craft a ranged weapon".to_string(),
-                output_item: "bow".to_string(),
+                id: "craft_railgun".to_string(),
+                name: "Railgun".to_string(),
+                description: "Craft a ballistic ranged weapon".to_string(),
+                output_item: "railgun".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("wood".to_string(), 4),
                     ("cloth".to_string(), 2),
                 ],
                 required_skill: Some(("crafting".to_string(), 4)),
-                required_tech: Some("archery".to_string()),
+                required_tech: Some("marksmanship".to_string()),
                 crafting_time: 45.0,
                 crafting_station: Some(CraftingStation::Workbench),
                 skill_xp_gained: 80,
             },
             CraftingRecipe {
-                id: "craft_crossbow".to_string(),
-                name: "Crossbow".to_string(),
-                description: "Craft a powerful crossbow".to_string(),
-                output_item: "crossbow".to_string(),
+                id: "craft_gauss_rifle".to_string(),
+                name: "Gauss Rifle".to_string(),
+                description: "Craft a powerful gauss rifle".to_string(),
+                output_item: "gauss_rifle".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("wood".to_string(), 5),
@@ -195,7 +195,7 @@ impl RecipeDatabase {
                     ("cloth".to_string(), 1),
                 ],
                 required_skill: Some(("crafting".to_string(), 8)),
-                required_tech: Some("advanced_archery".to_string()),
+                required_tech: Some("precision_weapons".to_string()),
                 crafting_time: 120.0,
                 crafting_station: Some(CraftingStation::Workbench),
                 skill_xp_gained: 200,
@@ -203,32 +203,32 @@ impl RecipeDatabase {
 
             // AMMO
             CraftingRecipe {
-                id: "craft_arrows".to_string(),
-                name: "Arrows".to_string(),
-                description: "Craft arrows for bows".to_string(),
-                output_item: "arrow".to_string(),
+                id: "craft_railgun_slugs".to_string(),
+                name: "Railgun Slugs".to_string(),
+                description: "Craft ammunition for railguns".to_string(),
+                output_item: "railgun_slug".to_string(),
                 output_quantity: 10,
                 required_items: vec![
                     ("wood".to_string(), 1),
                 ],
                 required_skill: Some(("crafting".to_string(), 2)),
-                required_tech: Some("archery".to_string()),
+                required_tech: Some("marksmanship".to_string()),
                 crafting_time: 10.0,
                 crafting_station: Some(CraftingStation::Workbench),
                 skill_xp_gained: 10,
             },
             CraftingRecipe {
-                id: "craft_bolts".to_string(),
-                name: "Crossbow Bolts".to_string(),
-                description: "Craft bolts for crossbows".to_string(),
-                output_item: "bolt".to_string(),
+                id: "craft_gauss_charges".to_string(),
+                name: "Gauss Charges".to_string(),
+                description: "Craft charges for gauss rifles".to_string(),
+                output_item: "gauss_charge".to_string(),
                 output_quantity: 10,
                 required_items: vec![
                     ("wood".to_string(), 1),
                     ("iron_bar".to_string(), 1),
                 ],
                 required_skill: Some(("crafting".to_string(), 4)),
-                required_tech: Some("advanced_archery".to_string()),
+                required_tech: Some("precision_weapons".to_string()),
                 crafting_time: 15.0,
                 crafting_station: Some(CraftingStation::Workbench),
                 skill_xp_gained: 15,
@@ -407,19 +407,19 @@ impl RecipeDatabase {
                 skill_xp_gained: 10,
             },
             CraftingRecipe {
-                id: "craft_health_potion".to_string(),
-                name: "Craft Health Potion".to_string(),
-                description: "Brew a healing potion".to_string(),
-                output_item: "health_potion".to_string(),
+                id: "craft_medkit".to_string(),
+                name: "Craft Medkit".to_string(),
+                description: "Synthesize a medical nanite injector".to_string(),
+                output_item: "medkit".to_string(),
                 output_quantity: 1,
                 required_items: vec![
                     ("cloth".to_string(), 1),
-                    ("wood".to_string(), 2), // Placeholder - should be herbs
+                    ("wood".to_string(), 2), // Placeholder - should be chemicals
                 ],
                 required_skill: Some(("crafting".to_string(), 5)),
-                required_tech: Some("alchemy".to_string()),
+                required_tech: Some("biochemistry".to_string()),
                 crafting_time: 30.0,
-                crafting_station: Some(CraftingStation::Laboratory),
+                crafting_station: Some(CraftingStation::ResearchLab),
                 skill_xp_gained: 50,
             },
             CraftingRecipe {

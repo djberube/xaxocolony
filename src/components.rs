@@ -71,11 +71,11 @@ impl StrikeType {
 
 #[derive(Component, PartialEq, Copy, Clone, Debug)]
 pub enum ActorType { // Entity? Character? Creature? Actor? Avatar? Unit? Agent?
-    Dwarf,
+    Miner,
     ManCrazy,
-    Elf,
+    Augmented,
     Teen,
-    Ranger,
+    Scout,
     Woman,
     Man,
     Man2,
@@ -93,16 +93,16 @@ pub enum ActorType { // Entity? Character? Creature? Actor? Avatar? Unit? Agent?
     BrownRat,
     Spider,
     Crab,
-    Cyclops,
+    TitanMech,
 }
 impl ActorType {
     pub fn sprite_row_and_col(&self) -> (usize, usize) {
         match self {
-            ActorType::Dwarf => (59 ,13),
+            ActorType::Miner => (59 ,13),
             ActorType::ManCrazy => (59, 15),
-            ActorType::Elf => (59, 18),
+            ActorType::Augmented => (59, 18),
             ActorType::Teen => (60, 11),
-            ActorType::Ranger => (59, 22),
+            ActorType::Scout => (59, 22),
             ActorType::Woman => (60, 48),
             ActorType::Man => (66, 46),
             ActorType::Man2 => (60, 21),
@@ -120,7 +120,7 @@ impl ActorType {
             ActorType::BrownRat => (64, 28),
             ActorType::Spider => (64, 29),
             ActorType::Crab => (63, 29),
-            ActorType::Cyclops => (59, 8),
+            ActorType::TitanMech => (59, 8),
         }
     }
     pub fn sprite_index(&self) -> usize {
@@ -340,11 +340,11 @@ pub enum AfflictionLocation {
     Intestines,
     Genitals,
     Tail,
-    Horns,
-    Wings,
-    Tentacles,
+    Antennae,
+    Thrusters,
+    Mechadendrites,
     Pseudopods,
-    Claws,
+    Manipulators,
     Teeth,
     Beak,
     Tongue,

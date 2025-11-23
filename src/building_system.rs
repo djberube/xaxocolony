@@ -31,23 +31,23 @@ pub enum BuildingType {
 
     // Military
     Barracks,
-    ArcheryRange,
-    Stable,
-    SiegeWorkshop,
-    Castle,
-    Tower,
+    FiringRange,
+    VehicleBay,
+    HeavyWeaponsFacility,
+    CommandCenter,
+    DefenseTurret,
     Gate,
     Wall,
 
     // Technology
     Blacksmith,
     University,
-    Monastery,
+    ResearchStation,
 
     // Special
     Wonder,
     Workshop,
-    Laboratory,
+    ResearchLab,
     Furnace,
     CookingStation,
     TanningRack,
@@ -67,19 +67,19 @@ impl BuildingType {
             BuildingType::Market => 1800,
             BuildingType::Dock => 1800,
             BuildingType::Barracks => 1200,
-            BuildingType::ArcheryRange => 1200,
-            BuildingType::Stable => 1200,
-            BuildingType::SiegeWorkshop => 1200,
-            BuildingType::Castle => 4800,
-            BuildingType::Tower => 1500,
+            BuildingType::FiringRange => 1200,
+            BuildingType::VehicleBay => 1200,
+            BuildingType::HeavyWeaponsFacility => 1200,
+            BuildingType::CommandCenter => 4800,
+            BuildingType::DefenseTurret => 1500,
             BuildingType::Gate => 2750,
             BuildingType::Wall => 900,
             BuildingType::Blacksmith => 1200,
             BuildingType::University => 1200,
-            BuildingType::Monastery => 1200,
+            BuildingType::ResearchStation => 1200,
             BuildingType::Wonder => 10000,
             BuildingType::Workshop => 800,
-            BuildingType::Laboratory => 1000,
+            BuildingType::ResearchLab => 1000,
             BuildingType::Furnace => 1200,
             BuildingType::CookingStation => 400,
             BuildingType::TanningRack => 600,
@@ -93,7 +93,7 @@ impl BuildingType {
             BuildingType::TownCenter => 150.0,
             BuildingType::House => 25.0,
             BuildingType::Farm => 15.0,
-            BuildingType::Castle => 200.0,
+            BuildingType::CommandCenter => 200.0,
             BuildingType::Wonder => 500.0,
             _ => 50.0,
         }
@@ -104,9 +104,9 @@ impl BuildingType {
             self,
             BuildingType::TownCenter
                 | BuildingType::Barracks
-                | BuildingType::ArcheryRange
-                | BuildingType::Stable
-                | BuildingType::SiegeWorkshop
+                | BuildingType::FiringRange
+                | BuildingType::VehicleBay
+                | BuildingType::HeavyWeaponsFacility
                 | BuildingType::Dock
         )
     }
@@ -117,16 +117,16 @@ impl BuildingType {
             BuildingType::TownCenter
                 | BuildingType::Blacksmith
                 | BuildingType::University
-                | BuildingType::Monastery
-                | BuildingType::Laboratory
+                | BuildingType::ResearchStation
+                | BuildingType::ResearchLab
         )
     }
 
     pub fn garrison_capacity(&self) -> i32 {
         match self {
             BuildingType::TownCenter => 15,
-            BuildingType::Castle => 20,
-            BuildingType::Tower => 5,
+            BuildingType::CommandCenter => 20,
+            BuildingType::DefenseTurret => 5,
             _ => 0,
         }
     }
@@ -135,7 +135,7 @@ impl BuildingType {
         match self {
             BuildingType::TownCenter => 5,
             BuildingType::House => 5,
-            BuildingType::Castle => 20,
+            BuildingType::CommandCenter => 20,
             _ => 0,
         }
     }
@@ -148,7 +148,7 @@ impl BuildingType {
                 ("stone".to_string(), 200 * multiplier),
                 ("iron_bar".to_string(), 100 * multiplier),
             ],
-            BuildingType::Castle => vec![
+            BuildingType::CommandCenter => vec![
                 ("stone".to_string(), 300 * multiplier),
                 ("iron_bar".to_string(), 150 * multiplier),
             ],

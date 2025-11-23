@@ -3,7 +3,7 @@ use crate::prelude::*;
 use crate::inventory_system::*;
 
 // ============================================================================
-// RANGED COMBAT SYSTEM - Bows, Crossbows, Guns
+// RANGED COMBAT SYSTEM - Railguns, Gauss Rifles, Guns
 // ============================================================================
 
 #[derive(Component)]
@@ -20,8 +20,8 @@ pub struct RangedWeapon {
 
 #[derive(Clone, PartialEq)]
 pub enum RangedWeaponType {
-    Bow,
-    Crossbow,
+    Railgun,
+    GaussRifle,
     Sling,
     Javelin,
     Gun,
@@ -70,7 +70,7 @@ pub fn ranged_attack_system(
             if let ItemClass::Weapon(weapon_stats) = &weapon_item.item_def.item_class {
                 // Only handle ranged weapons
                 match weapon_stats.weapon_type {
-                    WeaponType::Bow | WeaponType::Crossbow | WeaponType::Gun => {
+                    WeaponType::Railgun | WeaponType::GaussRifle | WeaponType::Gun => {
                         // Check ammo
                         if let Some(ammo_type) = &weapon_stats.ammo_type {
                             if !inventory.has_item(ammo_type, 1) {
@@ -94,7 +94,7 @@ pub fn ranged_attack_system(
 
                                     // Spawn projectile
                                     let projectile_sprite_index = match weapon_stats.weapon_type {
-                                        WeaponType::Bow | WeaponType::Crossbow => 94 * 64 + 30,
+                                        WeaponType::Railgun | WeaponType::GaussRifle => 94 * 64 + 30,
                                         WeaponType::Gun => 94 * 64 + 31,
                                         _ => 94 * 64 + 30,
                                     };
@@ -252,7 +252,7 @@ fn apply_explosion(
 pub struct ProjectileBuilder;
 
 impl ProjectileBuilder {
-    pub fn arrow(owner: Entity, position: Position, velocity: Vec2, damage: i32) -> (Projectile, Position) {
+    pub fn railgun_slug(owner: Entity, position: Position, velocity: Vec2, damage: i32) -> (Projectile, Position) {
         (
             Projectile {
                 damage,
@@ -268,15 +268,15 @@ impl ProjectileBuilder {
         )
     }
 
-    pub fn bolt(owner: Entity, position: Position, velocity: Vec2, damage: i32) -> (Projectile, Position) {
+    pub fn gauss_charge(owner: Entity, position: Position, velocity: Vec2, damage: i32) -> (Projectile, Position) {
         (
             Projectile {
-                damage: damage + 2, // Bolts do more damage
+                damage: damage + 2, // Gauss charges do more damage
                 owner,
                 target: None,
                 velocity,
                 lifetime: 4.0,
-                piercing: true, // Bolts can pierce
+                piercing: true, // Gauss charges can pierce
                 explosive: false,
                 explosion_radius: 0.0,
             },
@@ -300,7 +300,7 @@ impl ProjectileBuilder {
         )
     }
 
-    pub fn explosive_arrow(
+    pub fn explosive_round(
         owner: Entity,
         position: Position,
         velocity: Vec2,
@@ -357,7 +357,7 @@ pub fn ranged_targeting_system(
         if let Some(weapon_item) = &equipment.weapon_main {
             if let ItemClass::Weapon(weapon_stats) = &weapon_item.item_def.item_class {
                 match weapon_stats.weapon_type {
-                    WeaponType::Bow | WeaponType::Crossbow | WeaponType::Gun => {
+                    WeaponType::Railgun | WeaponType::GaussRifle | WeaponType::Gun => {
                         // Find nearest enemy in range
                         let mut nearest_target = None;
                         let mut nearest_distance = weapon_stats.range;
