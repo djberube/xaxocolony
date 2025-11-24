@@ -151,12 +151,12 @@ pub struct WeaponStats {
 #[derive(Clone, PartialEq)]
 pub enum WeaponType {
     Melee,
-    Bow,
-    Crossbow,
+    Railgun,
+    GaussRifle,
     Gun,
-    Spear,
-    Sword,
-    Axe,
+    PlasmaLance,
+    Blade,
+    PowerAxe,
     Hammer,
 }
 
@@ -471,15 +471,15 @@ impl ItemDatabase {
                 max_stack: 1,
                 sprite_index: 94 * 64 + 30,
             }),
-            "iron_sword" => Some(ItemDefinition {
-                id: "iron_sword".to_string(),
-                name: "Iron Sword".to_string(),
-                description: "Sturdy iron blade".to_string(),
+            "combat_blade" => Some(ItemDefinition {
+                id: "combat_blade".to_string(),
+                name: "Combat Blade".to_string(),
+                description: "Sturdy tactical blade".to_string(),
                 item_class: ItemClass::Weapon(WeaponStats {
                     damage: 15,
                     attack_speed: 1.2,
                     range: 1.5,
-                    weapon_type: WeaponType::Sword,
+                    weapon_type: WeaponType::Blade,
                     durability: 100.0,
                     required_skill: 3,
                     ammo_type: None,
@@ -490,15 +490,15 @@ impl ItemDatabase {
                 max_stack: 1,
                 sprite_index: 19 * 64 + 45,
             }),
-            "war_axe" => Some(ItemDefinition {
-                id: "war_axe".to_string(),
-                name: "War Axe".to_string(),
-                description: "Heavy battle axe".to_string(),
+            "power_axe" => Some(ItemDefinition {
+                id: "power_axe".to_string(),
+                name: "Power Axe".to_string(),
+                description: "Powered combat axe".to_string(),
                 item_class: ItemClass::Weapon(WeaponStats {
                     damage: 20,
                     attack_speed: 0.8,
                     range: 1.5,
-                    weapon_type: WeaponType::Axe,
+                    weapon_type: WeaponType::PowerAxe,
                     durability: 120.0,
                     required_skill: 5,
                     ammo_type: None,
@@ -509,15 +509,15 @@ impl ItemDatabase {
                 max_stack: 1,
                 sprite_index: 94 * 64 + 30,
             }),
-            "spear" => Some(ItemDefinition {
-                id: "spear".to_string(),
-                name: "Spear".to_string(),
-                description: "Long reach weapon".to_string(),
+            "plasma_lance" => Some(ItemDefinition {
+                id: "plasma_lance".to_string(),
+                name: "Plasma Lance".to_string(),
+                description: "Long reach energy weapon".to_string(),
                 item_class: ItemClass::Weapon(WeaponStats {
                     damage: 12,
                     attack_speed: 1.0,
                     range: 2.5,
-                    weapon_type: WeaponType::Spear,
+                    weapon_type: WeaponType::PlasmaLance,
                     durability: 80.0,
                     required_skill: 2,
                     ammo_type: None,
@@ -530,18 +530,18 @@ impl ItemDatabase {
             }),
 
             // RANGED WEAPONS
-            "bow" => Some(ItemDefinition {
-                id: "bow".to_string(),
-                name: "Hunting Bow".to_string(),
-                description: "Basic ranged weapon".to_string(),
+            "railgun" => Some(ItemDefinition {
+                id: "railgun".to_string(),
+                name: "Railgun".to_string(),
+                description: "Basic ballistic ranged weapon".to_string(),
                 item_class: ItemClass::Weapon(WeaponStats {
                     damage: 10,
                     attack_speed: 0.7,
                     range: 8.0,
-                    weapon_type: WeaponType::Bow,
+                    weapon_type: WeaponType::Railgun,
                     durability: 100.0,
                     required_skill: 2,
-                    ammo_type: Some("arrow".to_string()),
+                    ammo_type: Some("railgun_slug".to_string()),
                 }),
                 weight: 2.0,
                 value: 120,
@@ -549,18 +549,18 @@ impl ItemDatabase {
                 max_stack: 1,
                 sprite_index: 94 * 64 + 30,
             }),
-            "crossbow" => Some(ItemDefinition {
-                id: "crossbow".to_string(),
-                name: "Crossbow".to_string(),
-                description: "Powerful ranged weapon".to_string(),
+            "gauss_rifle" => Some(ItemDefinition {
+                id: "gauss_rifle".to_string(),
+                name: "Gauss Rifle".to_string(),
+                description: "Powerful gauss rifle".to_string(),
                 item_class: ItemClass::Weapon(WeaponStats {
                     damage: 18,
                     attack_speed: 0.5,
                     range: 10.0,
-                    weapon_type: WeaponType::Crossbow,
+                    weapon_type: WeaponType::GaussRifle,
                     durability: 150.0,
                     required_skill: 4,
-                    ammo_type: Some("bolt".to_string()),
+                    ammo_type: Some("gauss_charge".to_string()),
                 }),
                 weight: 4.5,
                 value: 200,
@@ -570,12 +570,12 @@ impl ItemDatabase {
             }),
 
             // AMMO
-            "arrow" => Some(ItemDefinition {
-                id: "arrow".to_string(),
-                name: "Arrow".to_string(),
-                description: "Wooden arrow for bows".to_string(),
+            "railgun_slug" => Some(ItemDefinition {
+                id: "railgun_slug".to_string(),
+                name: "Railgun Slug".to_string(),
+                description: "Ammunition for railguns".to_string(),
                 item_class: ItemClass::Ammo(AmmoStats {
-                    ammo_type: "arrow".to_string(),
+                    ammo_type: "railgun_slug".to_string(),
                     damage_modifier: 1.0,
                 }),
                 weight: 0.1,
@@ -584,12 +584,12 @@ impl ItemDatabase {
                 max_stack: 100,
                 sprite_index: 94 * 64 + 30,
             }),
-            "bolt" => Some(ItemDefinition {
-                id: "bolt".to_string(),
-                name: "Crossbow Bolt".to_string(),
-                description: "Heavy bolt for crossbows".to_string(),
+            "gauss_charge" => Some(ItemDefinition {
+                id: "gauss_charge".to_string(),
+                name: "Gauss Charge".to_string(),
+                description: "Charge for gauss rifles".to_string(),
                 item_class: ItemClass::Ammo(AmmoStats {
-                    ammo_type: "bolt".to_string(),
+                    ammo_type: "gauss_charge".to_string(),
                     damage_modifier: 1.2,
                 }),
                 weight: 0.2,
@@ -863,10 +863,10 @@ impl ItemDatabase {
                 max_stack: 50,
                 sprite_index: 51 * 64 + 8,
             }),
-            "health_potion" => Some(ItemDefinition {
-                id: "health_potion".to_string(),
-                name: "Health Potion".to_string(),
-                description: "Restores health".to_string(),
+            "medkit" => Some(ItemDefinition {
+                id: "medkit".to_string(),
+                name: "Medkit".to_string(),
+                description: "Nanite injector that restores health".to_string(),
                 item_class: ItemClass::Consumable(ConsumableStats {
                     effect: ConsumableEffect::Healing(50),
                     duration: 0.0,
@@ -884,13 +884,13 @@ impl ItemDatabase {
     pub fn all_item_ids() -> Vec<&'static str> {
         vec![
             "wood", "stone", "iron_ore", "iron_bar", "cloth", "leather",
-            "wooden_club", "iron_sword", "war_axe", "spear", "bow", "crossbow",
-            "arrow", "bolt",
+            "wooden_club", "combat_blade", "power_axe", "plasma_lance", "railgun", "gauss_rifle",
+            "railgun_slug", "gauss_charge",
             "iron_axe", "iron_pickaxe", "fishing_rod",
             "leather_helmet", "iron_helmet", "leather_armor", "iron_armor",
             "wool_hat", "winter_coat", "leather_gloves", "boots",
             "cooked_meat", "raw_meat", "fish", "bread",
-            "bandage", "health_potion",
+            "bandage", "medkit",
         ]
     }
 }

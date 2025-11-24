@@ -19,13 +19,13 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 - **Item stacking** with smart stack management
 - **Item categories**: Weapons, Armor, Tools, Clothing, Food, Resources, Consumables, Ammo
 - **Comprehensive item database** with 30+ pre-defined items including:
-  - Weapons: Wooden Club, Iron Sword, War Axe, Spear, Bow, Crossbow
-  - Ammo: Arrows, Bolts
+  - Weapons: Wooden Club, Combat Blade, Power Axe, Plasma Lance, Railgun, Gauss Rifle
+  - Ammo: Railgun Slugs, Gauss Charges
   - Tools: Iron Axe, Iron Pickaxe, Fishing Rod
   - Armor: Leather/Iron Helmets, Armor (Head, Chest, Legs, Feet, Hands)
   - Clothing: Wool Hat, Winter Coat, Leather Gloves, Boots
   - Food: Cooked Meat, Raw Meat, Fish, Bread
-  - Consumables: Bandages, Health Potions
+  - Consumables: Bandages, Medkits
   - Resources: Wood, Stone, Iron Ore, Iron Bar, Cloth, Leather
 
 ### 2. ⚔️ EQUIPMENT SYSTEM
@@ -44,7 +44,7 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 **File**: `src/crafting_system.rs`
 
 - **70+ crafting recipes** across all categories
-- **Crafting stations required**: Workbench, Forge, Anvil, Cooking Pot, Loom, Tanning Rack, Furnace, Laboratory
+- **Crafting stations required**: Workbench, Forge, Anvil, Cooking Pot, Loom, Tanning Rack, Furnace, Research Lab
 - **Skill requirements** with XP gains
 - **Tech tree integration** - recipes locked behind research
 - **Crafting queue system** with progress tracking
@@ -82,9 +82,9 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 
 - **40+ technologies** across 4 ages:
   - **Stone Age**: Stone Tools, Fire Making, Basic Farming, Hunting
-  - **Bronze Age**: Mining, Smelting, Bronze Working, Archery, Masonry
-  - **Iron Age**: Iron Working, Advanced Weaponry, Advanced Archery, Fortification, Cavalry
-  - **Medieval**: Steel Working, Siege Engineering, Alchemy, Trade Networks, Advanced Agriculture, Medicine
+  - **Bronze Age**: Mining, Smelting, Bronze Working, Marksmanship, Masonry
+  - **Iron Age**: Iron Working, Advanced Weaponry, Precision Weapons, Defense Systems, Mechanized Units
+  - **Electronic**: Steel Working, Heavy Weapons, Biochemistry, Trade Networks, Advanced Agriculture, Medicine
 
 - **Technology categories**:
   - Military, Economy, Tools, Construction, Science, Survival
@@ -108,25 +108,25 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 
 - **5 unique civilizations**:
   - **Humans**: +10% gather rate, +15% build speed, +100 starting food
-  - **Elves**: +25% archery damage, +20% movement, +50% vision range
-  - **Dwarves**: +50% mining speed, +30% building health, +20% melee defense
-  - **Orcs**: +30% melee damage, +25% unit health, +20% training speed
-  - **Undead**: No food cost, regeneration, poison resistance
+  - **Cyborgs**: +25% ranged damage, +20% movement, +50% vision range
+  - **Miners**: +50% mining speed, +30% building health, +20% melee defense
+  - **Mutants**: +30% melee damage, +25% unit health, +20% training speed
+  - **Synthetics**: No food cost, regeneration, poison resistance
 
 - **Unique units** and **unique technologies** per civilization
 - **Civilization bonuses** affect all aspects of gameplay
 
-### 7. 🏹 RANGED COMBAT SYSTEM
+### 7. 🔫 RANGED COMBAT SYSTEM
 **File**: `src/combat_system/ranged.rs`
 
-- **Weapon types**: Bow, Crossbow, Sling, Javelin, Gun, Cannon
+- **Weapon types**: Railgun, Gauss Rifle, Sling, Javelin, Gun, Cannon
 - **Projectile system** with:
   - Physics-based movement
   - Collision detection
   - Wall blocking
-  - Piercing projectiles (bolts, bullets)
-  - Explosive projectiles (explosive arrows, cannonballs)
-- **Ammo management** - requires arrows/bolts/bullets
+  - Piercing projectiles (gauss charges, bullets)
+  - Explosive projectiles (explosive rounds, cannonballs)
+- **Ammo management** - requires railgun slugs/gauss charges/bullets
 - **Accuracy system** affected by:
   - Distance
   - Skill level
@@ -138,9 +138,9 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 
 - **27 building types** across categories:
   - **Economy**: Town Center, House, Farm, Mill, Lumber Camp, Mining Camp, Market, Dock
-  - **Military**: Barracks, Archery Range, Stable, Siege Workshop, Castle, Tower, Gate, Wall
-  - **Technology**: Blacksmith, University, Monastery
-  - **Special**: Wonder, Workshop, Laboratory, Furnace, Cooking Station, Tanning Rack, Loom, Storage Warehouse
+  - **Military**: Barracks, Firing Range, Vehicle Bay, Heavy Weapons Facility, Command Center, Defense Turret, Gate, Wall
+  - **Technology**: Blacksmith, University, Research Station
+  - **Special**: Wonder, Workshop, Research Lab, Furnace, Cooking Station, Tanning Rack, Loom, Storage Warehouse
 
 - **Building features**:
   - 5-level upgrade system
@@ -292,9 +292,9 @@ Your colony simulator has been transformed into a **FULL AAA EXPERIENCE** with f
 ✅ Resource gathering (wood, stone, gold, food)
 ✅ Military unit production
 ✅ Garrison mechanics
-✅ Barracks, Archery Range, Stable
-✅ Castle construction
-✅ Siege weapons
+✅ Barracks, Firing Range, Vehicle Bay
+✅ Command Center construction
+✅ Heavy weapons systems
 ✅ Squad tactics and stances
 
 ### From MASTER OF ORION 2 🚀
